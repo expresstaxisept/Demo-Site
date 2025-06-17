@@ -1,1 +1,1 @@
-# Demo-Site
+# DemoSite
