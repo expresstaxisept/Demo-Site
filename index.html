@@ -102,58 +102,70 @@
       </head>
   <body>
 
-       <style>
+<style>
+  .side-menu {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: -250px;
+    background-color: #1f2229; /* dark taxi base */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 80px;
+    border-left: 2px solid #ffc371;
+    box-shadow: -2px 0 10px #00000066;
+  }
+
+  .side-menu a {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #ffd255;
+    display: block;
+    transition: 0.3s;
+    font-weight: 600;
+    border-bottom: 1px solid #2b2e35;
+  }
+
+  .side-menu a:hover {
+    color: #1f2229;
+    background-color: #f6b302;
+  }
+
+  @media screen and (max-height: 450px) {
     .side-menu {
-      height: 100%;
-      width: 250px;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      right: -250px;
-      background-color: #111;
-      overflow-x: hidden;
-      transition: 0.5s;
-      padding-top: 80px;
+      padding-top: 15px;
     }
-
     .side-menu a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 18px;
-      color: white;
-      display: block;
-      transition: 0.3s;
+      font-size: 16px;
     }
+  }
+</style>
 
-    .side-menu a:hover {
-      color: var(--primary);
-      background-color: white;
-    }
-
-
-    @media screen and (max-height: 450px) {
-      .side-menu {padding-top: 15px;}
-      .side-menu a {font-size: 18px;}
-    }
-
-
-  </style>
 <style>
   .custom-dropdown {
     position: relative;
     display: inline-block;
-  
   }
 
   .custom-dropdown-button {
-    padding: 4px 12px;
+    padding: 6px 14px;
     font-size: 16px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
-    background: #fff;
+    border: 1px solid #3c3f46;
+    background: #2b2e35;
+    color: #ffd255;
     border-radius: 5px;
+    transition: 0.3s ease;
+  }
+
+  .custom-dropdown-button:hover {
+    background-color: #3c3f46;
+    border-color: #ffc371;
   }
 
   .custom-dropdown-button img {
@@ -165,22 +177,26 @@
   .custom-dropdown-list {
     display: none;
     position: absolute;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: #2b2e35;
+    border: 1px solid #3c3f46;
     min-width: 200px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     z-index: 1000;
+    border-radius: 4px;
   }
 
   .custom-dropdown-list div {
-    padding: 8px;
+    padding: 10px 12px;
     cursor: pointer;
     display: flex;
     align-items: center;
+    color: #ffd255;
+    transition: 0.3s;
   }
 
   .custom-dropdown-list div:hover {
-    background-color: #f1f1f1;
+    background-color: #ffc371;
+    color: #1f2229;
   }
 
   .custom-dropdown-list img {
@@ -189,6 +205,7 @@
     margin-right: 8px;
   }
 </style>
+
 
 <script>
   function toggleDropdown() {
@@ -337,13 +354,13 @@
 <style>
 .sepbetween {
   height: 2px;
-  background-color: #003366; /* blue color */
+  background-color: #ffc371; /* Taxi accent yellow */
   margin: 1rem 0;
-  border-radius: 2px; /* optional: rounded edges */
+  border-radius: 2px;
+  box-shadow: 0 0 4px #f6b30288;
 }
-
-
 </style>
+
     <div class="hero-wrap sticky_change" data-stellar-background-ratio="0.5">
 	<div class="background" ></div>
   <div class="overlay"></div>
@@ -361,13 +378,13 @@
           <h1 class="mb-4"><b></b></h1>
           <ul class="container-benefits">
             <div class="sepbetween"></div>
-                        <li><svg height="37" width="37" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 20.75H6C5.27065 20.75 4.57118 20.4603 4.05546 19.9445C3.53973 19.4288 3.25 18.7293 3.25 18V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H14.86C15.0589 3.25 15.2497 3.32902 15.3903 3.46967C15.531 3.61032 15.61 3.80109 15.61 4C15.61 4.19891 15.531 4.38968 15.3903 4.53033C15.2497 4.67098 15.0589 4.75 14.86 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V18C4.75 18.3315 4.8817 18.6495 5.11612 18.8839C5.35054 19.1183 5.66848 19.25 6 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V10.29C19.25 10.0911 19.329 9.90032 19.4697 9.75967C19.6103 9.61902 19.8011 9.54 20 9.54C20.1989 9.54 20.3897 9.61902 20.5303 9.75967C20.671 9.90032 20.75 10.0911 20.75 10.29V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z" fill="#007BFF"></path> <path d="M10.5 15.25C10.3071 15.2352 10.1276 15.1455 10 15L7.00001 12C6.93317 11.86 6.91136 11.7028 6.93759 11.5499C6.96382 11.3971 7.03679 11.2561 7.14646 11.1464C7.25613 11.0368 7.3971 10.9638 7.54996 10.9376C7.70282 10.9113 7.86006 10.9331 8.00001 11L10.47 13.47L19 4.99998C19.14 4.93314 19.2972 4.91133 19.4501 4.93756C19.6029 4.96379 19.7439 5.03676 19.8536 5.14643C19.9632 5.2561 20.0362 5.39707 20.0624 5.54993C20.0887 5.70279 20.0669 5.86003 20 5.99998L11 15C10.8724 15.1455 10.693 15.2352 10.5 15.25Z" fill="#003366"></path> </g></svg>
+                        <li><svg height="37" width="37" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 20.75H6C5.27065 20.75 4.57118 20.4603 4.05546 19.9445C3.53973 19.4288 3.25 18.7293 3.25 18V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H14.86C15.0589 3.25 15.2497 3.32902 15.3903 3.46967C15.531 3.61032 15.61 3.80109 15.61 4C15.61 4.19891 15.531 4.38968 15.3903 4.53033C15.2497 4.67098 15.0589 4.75 14.86 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V18C4.75 18.3315 4.8817 18.6495 5.11612 18.8839C5.35054 19.1183 5.66848 19.25 6 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V10.29C19.25 10.0911 19.329 9.90032 19.4697 9.75967C19.6103 9.61902 19.8011 9.54 20 9.54C20.1989 9.54 20.3897 9.61902 20.5303 9.75967C20.671 9.90032 20.75 10.0911 20.75 10.29V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z" fill="#1f2229"></path> <path d="M10.5 15.25C10.3071 15.2352 10.1276 15.1455 10 15L7.00001 12C6.93317 11.86 6.91136 11.7028 6.93759 11.5499C6.96382 11.3971 7.03679 11.2561 7.14646 11.1464C7.25613 11.0368 7.3971 10.9638 7.54996 10.9376C7.70282 10.9113 7.86006 10.9331 8.00001 11L10.47 13.47L19 4.99998C19.14 4.93314 19.2972 4.91133 19.4501 4.93756C19.6029 4.96379 19.7439 5.03676 19.8536 5.14643C19.9632 5.2561 20.0362 5.39707 20.0624 5.54993C20.0887 5.70279 20.0669 5.86003 20 5.99998L11 15C10.8724 15.1455 10.693 15.2352 10.5 15.25Z" fill="#000000"></path> </g></svg>
 <p>De service Prenium taxi</p></li>
-            <li><svg height="37" width="37" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 20.75H6C5.27065 20.75 4.57118 20.4603 4.05546 19.9445C3.53973 19.4288 3.25 18.7293 3.25 18V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H14.86C15.0589 3.25 15.2497 3.32902 15.3903 3.46967C15.531 3.61032 15.61 3.80109 15.61 4C15.61 4.19891 15.531 4.38968 15.3903 4.53033C15.2497 4.67098 15.0589 4.75 14.86 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V18C4.75 18.3315 4.8817 18.6495 5.11612 18.8839C5.35054 19.1183 5.66848 19.25 6 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V10.29C19.25 10.0911 19.329 9.90032 19.4697 9.75967C19.6103 9.61902 19.8011 9.54 20 9.54C20.1989 9.54 20.3897 9.61902 20.5303 9.75967C20.671 9.90032 20.75 10.0911 20.75 10.29V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z" fill="#007BFF"></path> <path d="M10.5 15.25C10.3071 15.2352 10.1276 15.1455 10 15L7.00001 12C6.93317 11.86 6.91136 11.7028 6.93759 11.5499C6.96382 11.3971 7.03679 11.2561 7.14646 11.1464C7.25613 11.0368 7.3971 10.9638 7.54996 10.9376C7.70282 10.9113 7.86006 10.9331 8.00001 11L10.47 13.47L19 4.99998C19.14 4.93314 19.2972 4.91133 19.4501 4.93756C19.6029 4.96379 19.7439 5.03676 19.8536 5.14643C19.9632 5.2561 20.0362 5.39707 20.0624 5.54993C20.0887 5.70279 20.0669 5.86003 20 5.99998L11 15C10.8724 15.1455 10.693 15.2352 10.5 15.25Z" fill="#003366"></path> </g></svg>
+            <li><svg height="37" width="37" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 20.75H6C5.27065 20.75 4.57118 20.4603 4.05546 19.9445C3.53973 19.4288 3.25 18.7293 3.25 18V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H14.86C15.0589 3.25 15.2497 3.32902 15.3903 3.46967C15.531 3.61032 15.61 3.80109 15.61 4C15.61 4.19891 15.531 4.38968 15.3903 4.53033C15.2497 4.67098 15.0589 4.75 14.86 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V18C4.75 18.3315 4.8817 18.6495 5.11612 18.8839C5.35054 19.1183 5.66848 19.25 6 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V10.29C19.25 10.0911 19.329 9.90032 19.4697 9.75967C19.6103 9.61902 19.8011 9.54 20 9.54C20.1989 9.54 20.3897 9.61902 20.5303 9.75967C20.671 9.90032 20.75 10.0911 20.75 10.29V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z" fill="#1f2229"></path> <path d="M10.5 15.25C10.3071 15.2352 10.1276 15.1455 10 15L7.00001 12C6.93317 11.86 6.91136 11.7028 6.93759 11.5499C6.96382 11.3971 7.03679 11.2561 7.14646 11.1464C7.25613 11.0368 7.3971 10.9638 7.54996 10.9376C7.70282 10.9113 7.86006 10.9331 8.00001 11L10.47 13.47L19 4.99998C19.14 4.93314 19.2972 4.91133 19.4501 4.93756C19.6029 4.96379 19.7439 5.03676 19.8536 5.14643C19.9632 5.2561 20.0362 5.39707 20.0624 5.54993C20.0887 5.70279 20.0669 5.86003 20 5.99998L11 15C10.8724 15.1455 10.693 15.2352 10.5 15.25Z" fill="#000000"></path> </g></svg>
 <p>Réservation facile et instantanée</p></li>
-            <li><svg height="37" width="37" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 20.75H6C5.27065 20.75 4.57118 20.4603 4.05546 19.9445C3.53973 19.4288 3.25 18.7293 3.25 18V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H14.86C15.0589 3.25 15.2497 3.32902 15.3903 3.46967C15.531 3.61032 15.61 3.80109 15.61 4C15.61 4.19891 15.531 4.38968 15.3903 4.53033C15.2497 4.67098 15.0589 4.75 14.86 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V18C4.75 18.3315 4.8817 18.6495 5.11612 18.8839C5.35054 19.1183 5.66848 19.25 6 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V10.29C19.25 10.0911 19.329 9.90032 19.4697 9.75967C19.6103 9.61902 19.8011 9.54 20 9.54C20.1989 9.54 20.3897 9.61902 20.5303 9.75967C20.671 9.90032 20.75 10.0911 20.75 10.29V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z" fill="#007BFF"></path> <path d="M10.5 15.25C10.3071 15.2352 10.1276 15.1455 10 15L7.00001 12C6.93317 11.86 6.91136 11.7028 6.93759 11.5499C6.96382 11.3971 7.03679 11.2561 7.14646 11.1464C7.25613 11.0368 7.3971 10.9638 7.54996 10.9376C7.70282 10.9113 7.86006 10.9331 8.00001 11L10.47 13.47L19 4.99998C19.14 4.93314 19.2972 4.91133 19.4501 4.93756C19.6029 4.96379 19.7439 5.03676 19.8536 5.14643C19.9632 5.2561 20.0362 5.39707 20.0624 5.54993C20.0887 5.70279 20.0669 5.86003 20 5.99998L11 15C10.8724 15.1455 10.693 15.2352 10.5 15.25Z" fill="#003366"></path> </g></svg>
+            <li><svg height="37" width="37" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 20.75H6C5.27065 20.75 4.57118 20.4603 4.05546 19.9445C3.53973 19.4288 3.25 18.7293 3.25 18V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H14.86C15.0589 3.25 15.2497 3.32902 15.3903 3.46967C15.531 3.61032 15.61 3.80109 15.61 4C15.61 4.19891 15.531 4.38968 15.3903 4.53033C15.2497 4.67098 15.0589 4.75 14.86 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V18C4.75 18.3315 4.8817 18.6495 5.11612 18.8839C5.35054 19.1183 5.66848 19.25 6 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V10.29C19.25 10.0911 19.329 9.90032 19.4697 9.75967C19.6103 9.61902 19.8011 9.54 20 9.54C20.1989 9.54 20.3897 9.61902 20.5303 9.75967C20.671 9.90032 20.75 10.0911 20.75 10.29V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z" fill="#1f2229"></path> <path d="M10.5 15.25C10.3071 15.2352 10.1276 15.1455 10 15L7.00001 12C6.93317 11.86 6.91136 11.7028 6.93759 11.5499C6.96382 11.3971 7.03679 11.2561 7.14646 11.1464C7.25613 11.0368 7.3971 10.9638 7.54996 10.9376C7.70282 10.9113 7.86006 10.9331 8.00001 11L10.47 13.47L19 4.99998C19.14 4.93314 19.2972 4.91133 19.4501 4.93756C19.6029 4.96379 19.7439 5.03676 19.8536 5.14643C19.9632 5.2561 20.0362 5.39707 20.0624 5.54993C20.0887 5.70279 20.0669 5.86003 20 5.99998L11 15C10.8724 15.1455 10.693 15.2352 10.5 15.25Z" fill="#000000"></path> </g></svg>
 <p>Disponibilité continue 24/7</p></li>
-            <li><svg height="37" width="37" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 20.75H6C5.27065 20.75 4.57118 20.4603 4.05546 19.9445C3.53973 19.4288 3.25 18.7293 3.25 18V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H14.86C15.0589 3.25 15.2497 3.32902 15.3903 3.46967C15.531 3.61032 15.61 3.80109 15.61 4C15.61 4.19891 15.531 4.38968 15.3903 4.53033C15.2497 4.67098 15.0589 4.75 14.86 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V18C4.75 18.3315 4.8817 18.6495 5.11612 18.8839C5.35054 19.1183 5.66848 19.25 6 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V10.29C19.25 10.0911 19.329 9.90032 19.4697 9.75967C19.6103 9.61902 19.8011 9.54 20 9.54C20.1989 9.54 20.3897 9.61902 20.5303 9.75967C20.671 9.90032 20.75 10.0911 20.75 10.29V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z" fill="#007BFF"></path> <path d="M10.5 15.25C10.3071 15.2352 10.1276 15.1455 10 15L7.00001 12C6.93317 11.86 6.91136 11.7028 6.93759 11.5499C6.96382 11.3971 7.03679 11.2561 7.14646 11.1464C7.25613 11.0368 7.3971 10.9638 7.54996 10.9376C7.70282 10.9113 7.86006 10.9331 8.00001 11L10.47 13.47L19 4.99998C19.14 4.93314 19.2972 4.91133 19.4501 4.93756C19.6029 4.96379 19.7439 5.03676 19.8536 5.14643C19.9632 5.2561 20.0362 5.39707 20.0624 5.54993C20.0887 5.70279 20.0669 5.86003 20 5.99998L11 15C10.8724 15.1455 10.693 15.2352 10.5 15.25Z" fill="#003366"></path> </g></svg>
+            <li><svg height="37" width="37" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 20.75H6C5.27065 20.75 4.57118 20.4603 4.05546 19.9445C3.53973 19.4288 3.25 18.7293 3.25 18V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H14.86C15.0589 3.25 15.2497 3.32902 15.3903 3.46967C15.531 3.61032 15.61 3.80109 15.61 4C15.61 4.19891 15.531 4.38968 15.3903 4.53033C15.2497 4.67098 15.0589 4.75 14.86 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V18C4.75 18.3315 4.8817 18.6495 5.11612 18.8839C5.35054 19.1183 5.66848 19.25 6 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V10.29C19.25 10.0911 19.329 9.90032 19.4697 9.75967C19.6103 9.61902 19.8011 9.54 20 9.54C20.1989 9.54 20.3897 9.61902 20.5303 9.75967C20.671 9.90032 20.75 10.0911 20.75 10.29V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z" fill="#1f2229"></path> <path d="M10.5 15.25C10.3071 15.2352 10.1276 15.1455 10 15L7.00001 12C6.93317 11.86 6.91136 11.7028 6.93759 11.5499C6.96382 11.3971 7.03679 11.2561 7.14646 11.1464C7.25613 11.0368 7.3971 10.9638 7.54996 10.9376C7.70282 10.9113 7.86006 10.9331 8.00001 11L10.47 13.47L19 4.99998C19.14 4.93314 19.2972 4.91133 19.4501 4.93756C19.6029 4.96379 19.7439 5.03676 19.8536 5.14643C19.9632 5.2561 20.0362 5.39707 20.0624 5.54993C20.0887 5.70279 20.0669 5.86003 20 5.99998L11 15C10.8724 15.1455 10.693 15.2352 10.5 15.25Z" fill="#000000"></path> </g></svg>
 <p>Service fiable et à l'heure</p></li>
             <div class="sepbetween"></div>
           </ul>
@@ -378,57 +395,76 @@
 <style>
   /* Background & container */
   .request-form {
-    background-color: #0a1f44;
+    background-color: #1f2229;
     padding: 20px;
     border-radius: 8px;
-    color: #e0e7ff;
+    color: #ffd255;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 0 10px #ffc37133;
   }
 
   /* Labels */
   .request-form label.label {
-    color: #a8c0ff;
+    color: #f6b302;
     font-weight: 600;
   }
 
   /* Inputs */
   .request-form input.form-control {
-    background-color: #142a5c;
-    border: 1.5px solid #1e3a8a;
-    color: white;
+    background-color: #2b2e35;
+    border: 1.5px solid #3c3f46;
+    color: #ffffff;
     transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
   }
 
+  /* Placeholder color updated to white - all browsers */
   .request-form input.form-control::placeholder {
-    color: #a0aec0;
+    color: #ffffff !important;
+    opacity: 1 !important;
+  }
+  .request-form input.form-control::-webkit-input-placeholder {
+    color: #ffffff !important;
+    opacity: 1 !important;
+  }
+  .request-form input.form-control::-moz-placeholder {
+    color: #ffffff !important;
+    opacity: 1 !important;
+  }
+  .request-form input.form-control:-ms-input-placeholder {
+    color: #ffffff !important;
+    opacity: 1 !important;
+  }
+  .request-form input.form-control:-moz-placeholder {
+    color: #ffffff !important;
+    opacity: 1 !important;
   }
 
   .request-form input.form-control:focus {
-    border-color: #4f8dff;
-    box-shadow: 0 0 8px #4f8dff88;
+    border-color: #ffc371;
+    box-shadow: 0 0 8px #ffc37188;
     outline: none;
-    background-color: #1a346e;
-    color: #fff;
-    transform: scale(1.05);
+    background-color: #3c3f46;
+    color: #ffd255;
+    transform: scale(1.03);
     z-index: 10;
   }
 
   .request-form input.form-control,
   .request-form input.form-control:focus,
   .request-form input.form-control:-webkit-autofill {
-    color: #ffffff !important;
+    color: #ffd255 !important;
     -webkit-text-fill-color: #ffffff !important;
   }
 
   .request-form .input-group-text {
-    background-color: #142a5c;
-    border: 1.5px solid #1e3a8a;
-    color: #a8c0ff;
+    background-color: #2b2e35;
+    border: 1.5px solid #3c3f46;
+    color: #f6b302;
   }
 
   /* Radio buttons */
   .toggle-container.wide {
-    background-color: #142a5c;
+    background-color: #2b2e35;
     border-radius: 5px;
     padding: 5px;
     display: flex;
@@ -441,33 +477,33 @@
 
   .toggle-container.wide label {
     cursor: pointer;
-    color: #a8c0ff;
+    color: #f6b302;
     padding: 6px 15px;
     border-radius: 4px;
-    background-color: #1e3a8a;
+    background-color: #3c3f46;
     user-select: none;
     transition: background-color 0.3s ease;
   }
 
   .toggle-container.wide input.toggle:checked + label {
-    background-color: #4f8dff;
-    color: #fff;
-    box-shadow: 0 0 10px #4f8dffaa;
+    background-color: #ffc371;
+    color: #1f2229;
+    box-shadow: 0 0 10px #f6b302aa;
   }
 
   /* Date & time inputs */
   input[type="date"],
   input[type="time"] {
-    color: white;
-    background-color: #142a5c;
-    border: 1.5px solid #1e3a8a;
+    color: #ffd255;
+    background-color: #2b2e35;
+    border: 1.5px solid #3c3f46;
     border-radius: 4px;
     padding-right: 30px;
   }
 
   input[type="date"]::-webkit-calendar-picker-indicator,
   input[type="time"]::-webkit-calendar-picker-indicator {
-    filter: invert(1) brightness(2);
+    filter: brightness(2) sepia(1) saturate(10) hue-rotate(5deg);
   }
 
   /* Error messages */
@@ -482,34 +518,34 @@
   }
 
   .address-feedback {
-    color: #7aaaffaa;
+    color: #ffd255aa;
     font-size: 0.9em;
   }
 
-  /* Submit button - blue gradient */
+  /* Submit button - bright taxi yellow */
   .btn-primary {
-    background: linear-gradient(45deg, #1e40af, #2563eb);
+    background: linear-gradient(45deg, #ffc371, #f6b302);
     border: none;
     font-weight: 700;
-    box-shadow: 0 0 8px #4f8dffcc;
+    box-shadow: 0 0 8px #f6b302cc;
     transition: background 0.3s ease, box-shadow 0.3s ease;
-    color: white;
+    color: #1f2229;
   }
 
   .btn-primary:hover {
-    background: linear-gradient(45deg, #3b6ddd, #60a5fa);
-    box-shadow: 0 0 12px #60a5faee;
+    background: linear-gradient(45deg, #f6b302, #ffd255);
+    box-shadow: 0 0 12px #ffd255ee;
   }
 
-  /* Phone icon & button - blue themed */
+  /* Phone icon & button */
   .btn-number {
-    background-color: #142a5c;
-    border: 1.5px solid #2563eb;
+    background-color: #2b2e35;
+    border: 1.5px solid #ffc371;
     padding: 8px 15px;
     border-radius: 5px;
     display: inline-flex;
     align-items: center;
-    color: #a8c0ff;
+    color: #ffd255;
     text-decoration: none;
     font-weight: 600;
     margin-top: 10px;
@@ -517,16 +553,20 @@
   }
 
   .btn-number:hover {
-    background-color: #2563eb;
-    border-color: #4f8dff;
-    color: #fff;
+    background-color: #f6b302;
+    border-color: #ffd255;
+    color: #1f2229;
   }
 
   .btn-number svg {
-    fill: #4f8dff;
+    fill: #f6b302;
     margin-right: 8px;
   }
 </style>
+
+
+
+
 
 
 
@@ -615,7 +655,7 @@
   <!-- Google reCaptcha -->
   <div class="form-group">
     <div class="g-recaptcha" data-sitekey="6LfZ7BIqAAAAAA1eDOnJzxaWG09_pSz5JmHC6smu" style="width:50px !important;"></div>
-    <div id="captchaError" style="color: #007BFF; display: none;"></div>
+    <div id="captchaError" style="color: #1f2229; display: none;"></div>
   </div>
 
   <!-- Réserver -->
@@ -750,9 +790,10 @@
     position: relative;
     display: inline-block;
     max-width: 100%;
-    border: none; /* Removed pink border */
+    border: none;
     border-radius: 12px;
     padding: 4px;
+    background-color: #1f2229;
   }
 
   /* Image styles */
@@ -760,7 +801,7 @@
     width: 100%;
     height: auto;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 20px rgba(246, 179, 2, 0.15); /* yellow glow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     will-change: transform;
     display: block;
@@ -768,7 +809,7 @@
     z-index: 2;
   }
 
-  /* Removed gradient overlay - transparent */
+  /* Transparent overlay (preserved) */
   #driver-networks-section .col-md-6.text-center::after {
     content: "";
     pointer-events: none;
@@ -783,21 +824,23 @@
 <style>
   .hover-card-effect {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 2px solid #0056d2; /* Replace red with blue */
+    border: 2px solid #ffc371; /* Taxi yellow border */
     border-radius: 10px;
     padding: 10px;
+    background-color: #2b2e35;
   }
 
   .hover-card-effect:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 10px #0056d2;
+    box-shadow: 0 0 12px #ffd255cc; /* Bright yellow hover glow */
   }
 
   .item-img img {
     display: block;
-    border: none !important; /* Force remove red borders if they come from img */
+    border: none !important;
   }
 </style>
+
 
 <!-- Add this in your <head> or before closing body -->
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
@@ -825,10 +868,10 @@
     cursor: default;
   }
 
-  /* Hover effect in blue */
+  /* Hover effect in taxi yellow */
   .hover-card-effect:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px #0056d2 !important;
+    box-shadow: 0 0 15px #ffd255 !important;
   }
 
   /* Make sure images inside icons are clean */
@@ -842,12 +885,12 @@
 
   /* Section title color */
   #driver-networks-section h1 {
-    color: #0044cc;
+    color: #ffc371;
   }
 
   /* Titles inside items */
   .item-text h3 {
-    color: #0056d2;
+    color: #f6b302;
   }
 
   /* 3D tilt container for last image */
@@ -860,7 +903,7 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     transform-style: preserve-3d;
     border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 20px rgba(246, 179, 2, 0.15); /* soft yellow shadow */
     cursor: grab;
   }
 </style>
@@ -872,18 +915,18 @@
 
 
 
-<section style="padding: 50px 20px; background-color: #e6f0ff; text-align: center;">
-  <h1 style="text-align: center; font-size: 48px; font-weight: 600; margin-bottom: 60px; color: #003366;">NOS SERVICE</h1>
+<section style="padding: 50px 20px; background-color: #1f2229; text-align: center;">
+  <h1 style="text-align: center; font-size: 48px; font-weight: 600; margin-bottom: 60px; color: #ffc371;">NOS SERVICE</h1>
 
   <!-- First Row -->
   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto 40px auto;">
     
     <!-- Card 1 -->
-    <div class="card-animated card-hover" style="flex: 1 1 300px; max-width: 350px; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; height: 750px;">
+    <div class="card-animated card-hover" style="flex: 1 1 300px; max-width: 350px; background: #2b2e35; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 15px rgba(246, 179, 2, 0.15); display: flex; flex-direction: column; height: 750px; color: #ffd255;">
       <div style="height: 270px; background-image: url('assets/images/paris.jpeg'); background-size: contain; background-repeat: no-repeat; background-position: top center;"></div>
       <div style="flex-grow: 1; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
         <div>
-          <h3>Transfert Privé sur mesure à Paris</h3><br>
+          <h3 style="color: #ffc371;">Transfert Privé sur mesure à Paris</h3><br>
           <p>Service de transfert privé à Paris, adapté à vos besoins et horaires. Confort, discrétion et ponctualité pour tous vos déplacements.</p>
         </div>
         <div class="scroll-container" style="margin-top: 15px; height: 200px; overflow: hidden; position: relative; cursor: grab;">
@@ -901,11 +944,11 @@
     </div>
 
     <!-- Card 2 -->
-    <div class="card-animated card-hover" style="flex: 1 1 300px; max-width: 350px; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; height: 750px;">
+    <div class="card-animated card-hover" style="flex: 1 1 300px; max-width: 350px; background: #2b2e35; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 15px rgba(246, 179, 2, 0.15); display: flex; flex-direction: column; height: 750px; color: #ffd255;">
       <div style="height: 270px; background-image: url('assets/images/train.jpeg'); background-size: contain; background-repeat: no-repeat; background-position: top center;"></div>
       <div style="flex-grow: 1; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
         <div>
-          <h3>Transfert Gares De Paris</h3><br>
+          <h3 style="color: #ffc371;">Transfert Gares De Paris</h3><br>
           <p>Chauffeurs professionnels et fiables à Paris, pour des trajets rapides, sûrs et confortables, en toute discrétion.</p>
         </div>
         <div class="scroll-container" style="margin-top: 15px; height: 200px; overflow: hidden; position: relative; cursor: grab;">
@@ -923,11 +966,11 @@
     </div>
 
     <!-- Card 3 -->
-    <div class="card-animated card-hover" style="flex: 1 1 300px; max-width: 350px; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; height: 750px;">
+    <div class="card-animated card-hover" style="flex: 1 1 300px; max-width: 350px; background: #2b2e35; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 15px rgba(246, 179, 2, 0.15); display: flex; flex-direction: column; height: 750px; color: #ffd255;">
       <div style="height: 270px; background-image: url('assets/images/plane.jpeg'); background-size: contain; background-repeat: no-repeat; background-position: top center;"></div>
       <div style="flex-grow: 1; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
         <div>
-          <h3>Transfert Aéroport Sur Mesure</h3><br>
+          <h3 style="color: #ffc371;">Transfert Aéroport Sur Mesure</h3><br>
           <p>Service de transfert privé entre l’aéroport et Paris, rapide, confortable et fiable, pour un accueil personnalisé dès votre arrivée.</p>
         </div>
         <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 8px;">
@@ -943,12 +986,11 @@
   <!-- Second Row -->
   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto;">
     <!-- Card 4 -->
-    <div class="card-animated card-hover" style="flex: 1 1 300px; max-width: 350px; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; height: 750px;">
+    <div class="card-animated card-hover" style="flex: 1 1 300px; max-width: 350px; background: #2b2e35; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 15px rgba(246, 179, 2, 0.15); display: flex; flex-direction: column; height: 750px; color: #ffd255;">
       <div style="height: 270px; background-image: url('assets/images/VANPIC.jpeg'); background-size: contain; background-repeat: no-repeat; background-position: top center;"></div>
       <div style="flex-grow: 1; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
         <div>
-          
-          <h3>Transport Taxi Van</h3><br>
+          <h3 style="color: #ffc371;">Transport Taxi Van</h3><br>
           <p>Voyagez facilement entre Paris et Disneyland grâce à notre service de navette confortable et fiable, pour toute la famille.</p>
         </div>
         <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 8px;">
@@ -961,11 +1003,11 @@
     </div>
 
     <!-- Card 5 -->
-    <div class="card-animated card-hover" style="flex: 1 1 300px; max-width: 350px; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; height: 750px;">
+    <div class="card-animated card-hover" style="flex: 1 1 300px; max-width: 350px; background: #2b2e35; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 15px rgba(246, 179, 2, 0.15); display: flex; flex-direction: column; height: 750px; color: #ffd255;">
       <div style="height: 270px; background-image: url('assets/images/indeximg.jpeg'); background-size: contain; background-repeat: no-repeat; background-position: top center;"></div>
       <div style="flex-grow: 1; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
         <div>
-          <h3>Les sieges bebe</h3><br>
+          <h3 style="color: #ffc371;">Les sieges bebe</h3><br>
           <p>Solution de transport haut de gamme pour vos réunions, événements d'affaires ou déplacements corporate, avec ponctualité et élégance.</p>
         </div>
         <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 8px;">
@@ -978,11 +1020,11 @@
     </div>
 
     <!-- Card 6 -->
-    <div class="card-animated card-hover" style="flex: 1 1 300px; max-width: 350px; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; height: 750px;">
+    <div class="card-animated card-hover" style="flex: 1 1 300px; max-width: 350px; background: #2b2e35; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 15px rgba(246, 179, 2, 0.15); display: flex; flex-direction: column; height: 750px; color: #ffd255;">
       <div style="height: 270px; background-image: url('assets/images/gamvoi.jpg'); background-size: contain; background-repeat: no-repeat; background-position: top center;"></div>
       <div style="flex-grow: 1; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
         <div>
-          <h3>Gamme de voiture</h3><br>
+          <h3 style="color: #ffc371;">Gamme de voiture</h3><br>
           <p>Service dédié pour vos événements spéciaux : mariages, anniversaires, galas. Luxe, style et service personnalisé assurés.</p>
         </div>
         <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 8px;">
@@ -991,11 +1033,11 @@
           <div class="button-wrapper"><a href="aide/aeroport-paris-beauvais.html" class="station-btn">SUV</a></div>
           <div class="button-wrapper"><a href="aide/aeroport-paris-bourget.html" class="station-btn">electrique</a></div>
         </div>
-          
-        </div>
       </div>
     </div>
   </div>
+</section>
+
 
   <!-- (Your CSS and JavaScript remain the same below...) -->
 
@@ -1004,58 +1046,60 @@
 
 
 
-  <style>
-    .station-btn {
-      color: #003366;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 8px 20px;
-      border: 2px solid #003366;
-      border-radius: 50px;
-      display: inline-block;
-      width: 250px;
-      text-align: center;
-      transition: all 0.3s ease-in-out;
-      background-color: white;
-    }
+ <style>
+  .station-btn {
+    color: #ffc371;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 20px;
+    border: 2px solid #ffc371;
+    border-radius: 50px;
+    display: inline-block;
+    width: 250px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    background-color: #1f2229;
+  }
 
-    .station-btn:hover {
-      background-color: #003366;
-      color: white;
-      transform: scale(1.05);
-    }
+  .station-btn:hover {
+    background-color: #ffd255;
+    color: #1f2229;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #f6b302aa;
+  }
 
-    .button-wrapper {
-      text-align: center;
-    }
+  .button-wrapper {
+    text-align: center;
+  }
 
-    .scrolling-content {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      will-change: transform;
-    }
+  .scrolling-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    will-change: transform;
+  }
 
-    .card-animated {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.8s ease-in-out;
-    }
+  .card-animated {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-in-out;
+  }
 
-    .card-animated.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .card-animated.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-    .card-hover {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 
-    .card-hover:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 25px rgba(0, 123, 255, 0.3);
-    }
-  </style>
+  .card-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(246, 179, 2, 0.25); /* Yellow glow */
+  }
+</style>
+
 
   <script>
     const cards = document.querySelectorAll(".card-animated");
@@ -1185,7 +1229,7 @@
 
 
 <section class="reviews-section">
-  <h1 style="text-align: center; font-size: 48px; font-weight: 600; margin-bottom: 60px; color: #003366;">CE QUE NOS CLIENTS DISENT DE NOUS</h1>
+  <h1 style="text-align: center; font-size: 48px; font-weight: 600; margin-bottom: 60px; color: #1f2229;">CE QUE NOS CLIENTS DISENT DE NOUS</h1>
  
   <div class="rating-title">EXCELLENT</div>
   <div class="stars">
@@ -1422,7 +1466,7 @@ Véhicule super propre et chauffeur très poli. Je recommande vivement !
 <br><br><br><br>
 
 
-  <h1 style="text-align: center; font-size: 48px; font-weight: 600; margin-bottom: 60px; color: #003366;">NOUS A FAIS CONFIANCE</h1>
+  <h1 style="text-align: center; font-size: 48px; font-weight: 600; margin-bottom: 60px; color: #1f2229;">NOUS A FAIS CONFIANCE</h1>
 
 
 <!-- Vyntra Infinite Right-Only Continuous Slider -->
@@ -1891,7 +1935,7 @@ breakpoints: {
 
 
 
-  <h1 style="text-align: center; font-size: 48px; font-weight: 600; margin-bottom: 60px; color: #003366;">Quels sont les modes de paiement disponibles ?</h1>
+  <h1 style="text-align: center; font-size: 48px; font-weight: 600; margin-bottom: 60px; color: #1f2229;">Quels sont les modes de paiement disponibles ?</h1>
 
 
 
@@ -2017,7 +2061,7 @@ breakpoints: {
     <div class="container">
         <div class="heading-section ftco-animate mb-5">
 
-              <h1 style="text-align: center; font-size: 48px; font-weight: 600; margin-bottom: 60px; color: #003366;">FAQs</h1>
+              <h1 style="text-align: center; font-size: 48px; font-weight: 600; margin-bottom: 60px; color: #1f2229;">FAQs</h1>
             <p>Trouvez les réponses aux questions couramment posées sur nos services de VTC.</p>
         </div>
         <div class="faq-container">
@@ -2089,7 +2133,7 @@ breakpoints: {
     <section id="carousel-section" class="ftco-section">
   <div class="container">
      <div class="card-container d-flex align-items-center">
-      <div class="icon-container"><svg height="37" width="37" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 20.75H6C5.27065 20.75 4.57118 20.4603 4.05546 19.9445C3.53973 19.4288 3.25 18.7293 3.25 18V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H14.86C15.0589 3.25 15.2497 3.32902 15.3903 3.46967C15.531 3.61032 15.61 3.80109 15.61 4C15.61 4.19891 15.531 4.38968 15.3903 4.53033C15.2497 4.67098 15.0589 4.75 14.86 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V18C4.75 18.3315 4.8817 18.6495 5.11612 18.8839C5.35054 19.1183 5.66848 19.25 6 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V10.29C19.25 10.0911 19.329 9.90032 19.4697 9.75967C19.6103 9.61902 19.8011 9.54 20 9.54C20.1989 9.54 20.3897 9.61902 20.5303 9.75967C20.671 9.90032 20.75 10.0911 20.75 10.29V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z" fill="#007BFF"></path> <path d="M10.5 15.25C10.3071 15.2352 10.1276 15.1455 10 15L7.00001 12C6.93317 11.86 6.91136 11.7028 6.93759 11.5499C6.96382 11.3971 7.03679 11.2561 7.14646 11.1464C7.25613 11.0368 7.3971 10.9638 7.54996 10.9376C7.70282 10.9113 7.86006 10.9331 8.00001 11L10.47 13.47L19 4.99998C19.14 4.93314 19.2972 4.91133 19.4501 4.93756C19.6029 4.96379 19.7439 5.03676 19.8536 5.14643C19.9632 5.2561 20.0362 5.39707 20.0624 5.54993C20.0887 5.70279 20.0669 5.86003 20 5.99998L11 15C10.8724 15.1455 10.693 15.2352 10.5 15.25Z" fill="#007BFF"></path> </g></svg>
+      <div class="icon-container"><svg height="37" width="37" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 20.75H6C5.27065 20.75 4.57118 20.4603 4.05546 19.9445C3.53973 19.4288 3.25 18.7293 3.25 18V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H14.86C15.0589 3.25 15.2497 3.32902 15.3903 3.46967C15.531 3.61032 15.61 3.80109 15.61 4C15.61 4.19891 15.531 4.38968 15.3903 4.53033C15.2497 4.67098 15.0589 4.75 14.86 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V18C4.75 18.3315 4.8817 18.6495 5.11612 18.8839C5.35054 19.1183 5.66848 19.25 6 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V10.29C19.25 10.0911 19.329 9.90032 19.4697 9.75967C19.6103 9.61902 19.8011 9.54 20 9.54C20.1989 9.54 20.3897 9.61902 20.5303 9.75967C20.671 9.90032 20.75 10.0911 20.75 10.29V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z" fill="#1f2229"></path> <path d="M10.5 15.25C10.3071 15.2352 10.1276 15.1455 10 15L7.00001 12C6.93317 11.86 6.91136 11.7028 6.93759 11.5499C6.96382 11.3971 7.03679 11.2561 7.14646 11.1464C7.25613 11.0368 7.3971 10.9638 7.54996 10.9376C7.70282 10.9113 7.86006 10.9331 8.00001 11L10.47 13.47L19 4.99998C19.14 4.93314 19.2972 4.91133 19.4501 4.93756C19.6029 4.96379 19.7439 5.03676 19.8536 5.14643C19.9632 5.2561 20.0362 5.39707 20.0624 5.54993C20.0887 5.70279 20.0669 5.86003 20 5.99998L11 15C10.8724 15.1455 10.693 15.2352 10.5 15.25Z" fill="#1f2229"></path> </g></svg>
 </div>
       <div class="text-container">
         <p class="title">TARIFS CLAIRS</p>
@@ -2097,7 +2141,7 @@ breakpoints: {
       </div>
     </div>
     <div class="card-container d-flex align-items-center">
-      <div class="icon-container"><svg height="37" width="37" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 20.75H6C5.27065 20.75 4.57118 20.4603 4.05546 19.9445C3.53973 19.4288 3.25 18.7293 3.25 18V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H14.86C15.0589 3.25 15.2497 3.32902 15.3903 3.46967C15.531 3.61032 15.61 3.80109 15.61 4C15.61 4.19891 15.531 4.38968 15.3903 4.53033C15.2497 4.67098 15.0589 4.75 14.86 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V18C4.75 18.3315 4.8817 18.6495 5.11612 18.8839C5.35054 19.1183 5.66848 19.25 6 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V10.29C19.25 10.0911 19.329 9.90032 19.4697 9.75967C19.6103 9.61902 19.8011 9.54 20 9.54C20.1989 9.54 20.3897 9.61902 20.5303 9.75967C20.671 9.90032 20.75 10.0911 20.75 10.29V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z" fill="#007BFF"></path> <path d="M10.5 15.25C10.3071 15.2352 10.1276 15.1455 10 15L7.00001 12C6.93317 11.86 6.91136 11.7028 6.93759 11.5499C6.96382 11.3971 7.03679 11.2561 7.14646 11.1464C7.25613 11.0368 7.3971 10.9638 7.54996 10.9376C7.70282 10.9113 7.86006 10.9331 8.00001 11L10.47 13.47L19 4.99998C19.14 4.93314 19.2972 4.91133 19.4501 4.93756C19.6029 4.96379 19.7439 5.03676 19.8536 5.14643C19.9632 5.2561 20.0362 5.39707 20.0624 5.54993C20.0887 5.70279 20.0669 5.86003 20 5.99998L11 15C10.8724 15.1455 10.693 15.2352 10.5 15.25Z" fill="#007BFF"></path> </g></svg>
+      <div class="icon-container"><svg height="37" width="37" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 20.75H6C5.27065 20.75 4.57118 20.4603 4.05546 19.9445C3.53973 19.4288 3.25 18.7293 3.25 18V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H14.86C15.0589 3.25 15.2497 3.32902 15.3903 3.46967C15.531 3.61032 15.61 3.80109 15.61 4C15.61 4.19891 15.531 4.38968 15.3903 4.53033C15.2497 4.67098 15.0589 4.75 14.86 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V18C4.75 18.3315 4.8817 18.6495 5.11612 18.8839C5.35054 19.1183 5.66848 19.25 6 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V10.29C19.25 10.0911 19.329 9.90032 19.4697 9.75967C19.6103 9.61902 19.8011 9.54 20 9.54C20.1989 9.54 20.3897 9.61902 20.5303 9.75967C20.671 9.90032 20.75 10.0911 20.75 10.29V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z" fill="#1f2229"></path> <path d="M10.5 15.25C10.3071 15.2352 10.1276 15.1455 10 15L7.00001 12C6.93317 11.86 6.91136 11.7028 6.93759 11.5499C6.96382 11.3971 7.03679 11.2561 7.14646 11.1464C7.25613 11.0368 7.3971 10.9638 7.54996 10.9376C7.70282 10.9113 7.86006 10.9331 8.00001 11L10.47 13.47L19 4.99998C19.14 4.93314 19.2972 4.91133 19.4501 4.93756C19.6029 4.96379 19.7439 5.03676 19.8536 5.14643C19.9632 5.2561 20.0362 5.39707 20.0624 5.54993C20.0887 5.70279 20.0669 5.86003 20 5.99998L11 15C10.8724 15.1455 10.693 15.2352 10.5 15.25Z" fill="#1f2229"></path> </g></svg>
 </div>
       <div class="text-container">
         <p class="title">RESERVATION SANS FRAIS</p>
@@ -2105,7 +2149,7 @@ breakpoints: {
       </div>
     </div>
     <div class="card-container d-flex align-items-center">
-      <div class="icon-container"><svg height="37" width="37" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 20.75H6C5.27065 20.75 4.57118 20.4603 4.05546 19.9445C3.53973 19.4288 3.25 18.7293 3.25 18V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H14.86C15.0589 3.25 15.2497 3.32902 15.3903 3.46967C15.531 3.61032 15.61 3.80109 15.61 4C15.61 4.19891 15.531 4.38968 15.3903 4.53033C15.2497 4.67098 15.0589 4.75 14.86 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V18C4.75 18.3315 4.8817 18.6495 5.11612 18.8839C5.35054 19.1183 5.66848 19.25 6 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V10.29C19.25 10.0911 19.329 9.90032 19.4697 9.75967C19.6103 9.61902 19.8011 9.54 20 9.54C20.1989 9.54 20.3897 9.61902 20.5303 9.75967C20.671 9.90032 20.75 10.0911 20.75 10.29V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z" fill="#007BFF"></path> <path d="M10.5 15.25C10.3071 15.2352 10.1276 15.1455 10 15L7.00001 12C6.93317 11.86 6.91136 11.7028 6.93759 11.5499C6.96382 11.3971 7.03679 11.2561 7.14646 11.1464C7.25613 11.0368 7.3971 10.9638 7.54996 10.9376C7.70282 10.9113 7.86006 10.9331 8.00001 11L10.47 13.47L19 4.99998C19.14 4.93314 19.2972 4.91133 19.4501 4.93756C19.6029 4.96379 19.7439 5.03676 19.8536 5.14643C19.9632 5.2561 20.0362 5.39707 20.0624 5.54993C20.0887 5.70279 20.0669 5.86003 20 5.99998L11 15C10.8724 15.1455 10.693 15.2352 10.5 15.25Z" fill="#007BFF"></path> </g></svg>
+      <div class="icon-container"><svg height="37" width="37" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 20.75H6C5.27065 20.75 4.57118 20.4603 4.05546 19.9445C3.53973 19.4288 3.25 18.7293 3.25 18V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H14.86C15.0589 3.25 15.2497 3.32902 15.3903 3.46967C15.531 3.61032 15.61 3.80109 15.61 4C15.61 4.19891 15.531 4.38968 15.3903 4.53033C15.2497 4.67098 15.0589 4.75 14.86 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V18C4.75 18.3315 4.8817 18.6495 5.11612 18.8839C5.35054 19.1183 5.66848 19.25 6 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V10.29C19.25 10.0911 19.329 9.90032 19.4697 9.75967C19.6103 9.61902 19.8011 9.54 20 9.54C20.1989 9.54 20.3897 9.61902 20.5303 9.75967C20.671 9.90032 20.75 10.0911 20.75 10.29V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z" fill="#1f2229"></path> <path d="M10.5 15.25C10.3071 15.2352 10.1276 15.1455 10 15L7.00001 12C6.93317 11.86 6.91136 11.7028 6.93759 11.5499C6.96382 11.3971 7.03679 11.2561 7.14646 11.1464C7.25613 11.0368 7.3971 10.9638 7.54996 10.9376C7.70282 10.9113 7.86006 10.9331 8.00001 11L10.47 13.47L19 4.99998C19.14 4.93314 19.2972 4.91133 19.4501 4.93756C19.6029 4.96379 19.7439 5.03676 19.8536 5.14643C19.9632 5.2561 20.0362 5.39707 20.0624 5.54993C20.0887 5.70279 20.0669 5.86003 20 5.99998L11 15C10.8724 15.1455 10.693 15.2352 10.5 15.25Z" fill="#1f2229"></path> </g></svg>
 </div>
       <div class="text-container">
         <p class="title">ANNULATION GRATUITE</p>
@@ -2113,7 +2157,7 @@ breakpoints: {
       </div>
     </div>
     <div class="card-container d-flex align-items-center">
-      <div class="icon-container"><svg height="37" width="37" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 20.75H6C5.27065 20.75 4.57118 20.4603 4.05546 19.9445C3.53973 19.4288 3.25 18.7293 3.25 18V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H14.86C15.0589 3.25 15.2497 3.32902 15.3903 3.46967C15.531 3.61032 15.61 3.80109 15.61 4C15.61 4.19891 15.531 4.38968 15.3903 4.53033C15.2497 4.67098 15.0589 4.75 14.86 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V18C4.75 18.3315 4.8817 18.6495 5.11612 18.8839C5.35054 19.1183 5.66848 19.25 6 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V10.29C19.25 10.0911 19.329 9.90032 19.4697 9.75967C19.6103 9.61902 19.8011 9.54 20 9.54C20.1989 9.54 20.3897 9.61902 20.5303 9.75967C20.671 9.90032 20.75 10.0911 20.75 10.29V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z" fill="#007BFF"></path> <path d="M10.5 15.25C10.3071 15.2352 10.1276 15.1455 10 15L7.00001 12C6.93317 11.86 6.91136 11.7028 6.93759 11.5499C6.96382 11.3971 7.03679 11.2561 7.14646 11.1464C7.25613 11.0368 7.3971 10.9638 7.54996 10.9376C7.70282 10.9113 7.86006 10.9331 8.00001 11L10.47 13.47L19 4.99998C19.14 4.93314 19.2972 4.91133 19.4501 4.93756C19.6029 4.96379 19.7439 5.03676 19.8536 5.14643C19.9632 5.2561 20.0362 5.39707 20.0624 5.54993C20.0887 5.70279 20.0669 5.86003 20 5.99998L11 15C10.8724 15.1455 10.693 15.2352 10.5 15.25Z" fill="#007BFF"></path> </g></svg>
+      <div class="icon-container"><svg height="37" width="37" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 20.75H6C5.27065 20.75 4.57118 20.4603 4.05546 19.9445C3.53973 19.4288 3.25 18.7293 3.25 18V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H14.86C15.0589 3.25 15.2497 3.32902 15.3903 3.46967C15.531 3.61032 15.61 3.80109 15.61 4C15.61 4.19891 15.531 4.38968 15.3903 4.53033C15.2497 4.67098 15.0589 4.75 14.86 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V18C4.75 18.3315 4.8817 18.6495 5.11612 18.8839C5.35054 19.1183 5.66848 19.25 6 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V10.29C19.25 10.0911 19.329 9.90032 19.4697 9.75967C19.6103 9.61902 19.8011 9.54 20 9.54C20.1989 9.54 20.3897 9.61902 20.5303 9.75967C20.671 9.90032 20.75 10.0911 20.75 10.29V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z" fill="#1f2229"></path> <path d="M10.5 15.25C10.3071 15.2352 10.1276 15.1455 10 15L7.00001 12C6.93317 11.86 6.91136 11.7028 6.93759 11.5499C6.96382 11.3971 7.03679 11.2561 7.14646 11.1464C7.25613 11.0368 7.3971 10.9638 7.54996 10.9376C7.70282 10.9113 7.86006 10.9331 8.00001 11L10.47 13.47L19 4.99998C19.14 4.93314 19.2972 4.91133 19.4501 4.93756C19.6029 4.96379 19.7439 5.03676 19.8536 5.14643C19.9632 5.2561 20.0362 5.39707 20.0624 5.54993C20.0887 5.70279 20.0669 5.86003 20 5.99998L11 15C10.8724 15.1455 10.693 15.2352 10.5 15.25Z" fill="#1f2229"></path> </g></svg>
 </div>
       <div class="text-container">
         <p class="title">PAIEMENT SIMPLIFIÉ</p>
